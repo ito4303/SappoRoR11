@@ -4,23 +4,76 @@ author: "伊東宏樹"
 date: "2024-02-17"
 format: revealjs
 editor: visual
+self-contained: true
 ---
+
+## 自己紹介
+
+-   氏名: 伊東宏樹
 
 ## Quarto
 
-Quarto enables you to weave together content and executable code into a finished presentation. To learn more about Quarto presentations see <https://quarto.org/docs/presentations/>.
+Quarto
 
-## Bullets
+## インストール
 
-When you click the **Render** button a document will be generated that includes:
+インストーラー
 
--   Content authored with markdown
--   Output from executable code
+## RStudioから使う
 
-## Code
+RStudio
 
-When you click the **Render** button a presentation will be generated that includes both content and the output of embedded code. You can embed code like this:
+## ウェブサイトの作成
 
-```{r}
-1 + 1
+メニューから File \> New Project...
+
+![](figures/Create_Project.png)
+
+------------------------------------------------------------------------
+
+![](figures/Project_Type.png)
+
+------------------------------------------------------------------------
+
+![](figures/Create_Quarto_Website.png)
+
+## 設定
+
+yamlで`lang: ja`とすると、パーツを日本語化できる。
+
+``` yaml
+---
+title: "テストサイト"
+lang: ja
+---
 ```
+
+## \_quarto.yaml
+
+``` yaml
+project:
+  type: website
+  
+website:
+  title: "テストサイト"
+  navbar: left:
+    - href: index.qmd
+      text: Home
+    - about.qmd
+    
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+    
+editor: visual
+```
+
+## Blogの追加
+
+[Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
+
+## おわりに
+
+## 
