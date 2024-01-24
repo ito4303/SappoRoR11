@@ -11,17 +11,31 @@ self-contained: true
 
 -   氏名: 伊東宏樹
 
-## Quarto
+## Quartoとは
 
-Quarto
+[公式サイト](https://quarto.org/)いわく:
+
+-   An open-source scientific and technical publishing system
+
+-   Quarto is a multi-language, next generation version of R Markdown from Posit
+
+    -   Rのほか、Python、Julia、Observableに対応
+
+------------------------------------------------------------------------
+
+-   RStudio以外でも使える
+
+![](figures/emacs_quarto-mode.png){fig-alt="Emacs: quarto-mode"}
 
 ## インストール
 
-インストーラー
+-   RStudioとは別にインストール
+
+-   インストーラーは、[Get Started](https://quarto.org/docs/get-started/)または[ダウンロードページ](https://quarto.org/docs/download/)にて入手可能
 
 ## RStudioから使う
 
-RStudio
+![](figures/RStudio-File_Quarto.png){fig-alt="RStudio: File -> New File -> Quarto Document..."}
 
 ## ウェブサイトの作成
 
@@ -39,16 +53,13 @@ RStudio
 
 ## 設定
 
-yamlで`lang: ja`とすると、パーツを日本語化できる。
+-   サイトの設定
 
-``` yaml
----
-title: "テストサイト"
-lang: ja
----
-```
+-   ページごとの設定
 
-## \_quarto.yaml
+## サイトの設定
+
+\_quarto.yaml
 
 ``` yaml
 project:
@@ -70,10 +81,52 @@ format:
 editor: visual
 ```
 
+<https://quarto.org/docs/websites/website-navigation.html>
+
+<https://quarto.org/docs/websites/website-tools.html>
+
+## ページごとの設定
+
+yamlで`lang: ja`とすると、パーツを日本語化できる[^1]。
+
+[^1]: レンダリング時に警告がでたりするが。
+
+``` yaml
+---
+title: "テストサイト"
+lang: ja
+---
+```
+
 ## Blogの追加
 
 [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
 
+posts/
+
+posts/\_metadata.yml
+
+```         
+# options apply to all posts in this folder
+
+# freeze computational output
+freeze: true
+```
+
+posts.qmd
+
+\_quarto.yml に追加
+
+```         
+- posts.qmd
+```
+
+## ディレクトリ構造
+
+## RSS
+
 ## おわりに
 
-## 
+## Link
+
+第104回 Tokyo.R @kazuyanagimotoJ さん: [Non-designer's Presentation in Quarto](https://kazuyanagimoto.com/quarto-slides-example/code/slides/tokyor_quarto_slides/)
