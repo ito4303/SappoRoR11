@@ -10,10 +10,16 @@ self-contained: true
 ## 自己紹介
 
 -   氏名: 伊東宏樹
+-   勤務先: 森林総合研究所北海道支所
+-   共訳書:
+    -   [[BUGSで学ぶ階層モデリング入門---個体群のベイズ解析---](https://www.hanmoto.com/bd/isbn/9784320057807)]{style="font-size: 95%"}
+    -   [[生態学のための階層モデリング---RとBUGSによる分布・個体数量・種の豊かさの統計解析---](https://www.hanmoto.com/bd/isbn/9784320058149)]{style="font-size: 95%"}
 
 ## Quartoとは
 
+::: {style="margin-top: 2em;"}
 [公式サイト](https://quarto.org/)いわく:
+:::
 
 -   An open-source scientific and technical publishing system
 
@@ -23,15 +29,15 @@ self-contained: true
 
 ------------------------------------------------------------------------
 
--   RStudio以外でも使える
+-   RStudio以外でも使える（例: Emacs）
 
 ![](figures/emacs_quarto-mode.png){fig-alt="Emacs: quarto-mode"}
 
 ## インストール
 
--   RStudioとは別にインストール
-
--   インストーラーは、[Get Started](https://quarto.org/docs/get-started/)または[ダウンロードページ](https://quarto.org/docs/download/)にて入手可能
+::: {style="margin-top: 2em;"}
+インストーラーは、[Get Started](https://quarto.org/docs/get-started/)または[ダウンロードページ](https://quarto.org/docs/download/)にて入手可能
+:::
 
 ## RStudioから使う
 
@@ -53,9 +59,11 @@ self-contained: true
 
 ## 設定
 
+::: {style="margin-top: 2em;"}
 -   サイトの設定
 
 -   ページごとの設定
+:::
 
 ## サイトの設定
 
@@ -81,13 +89,19 @@ format:
 editor: visual
 ```
 
-<https://quarto.org/docs/websites/website-navigation.html>
+------------------------------------------------------------------------
 
-<https://quarto.org/docs/websites/website-tools.html>
+詳細は
+
+-   [Website Navigation](https://quarto.org/docs/websites/website-navigation.html)
+
+-   [Website Tools](https://quarto.org/docs/websites/website-tools.html)
 
 ## ページごとの設定
 
-yamlで`lang: ja`とすると、パーツを日本語化できる[^1]。
+-   YAMLヘッダで設定
+
+-   `lang: ja`とすると、パーツを日本語化できる[^1]。
 
 [^1]: レンダリング時に警告がでたりするが。
 
@@ -121,12 +135,8 @@ posts.qmd
 - posts.qmd
 ```
 
-## ディレクトリ構造
+## ディレクトリ構造（例）
 
 ## RSS
 
 ## おわりに
-
-## Link
-
-第104回 Tokyo.R @kazuyanagimotoJ さん: [Non-designer's Presentation in Quarto](https://kazuyanagimoto.com/quarto-slides-example/code/slides/tokyor_quarto_slides/)
