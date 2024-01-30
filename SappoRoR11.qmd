@@ -112,13 +112,36 @@ lang: ja
 ---
 ```
 
+## トップページの作成
+
+`index.qmd`
+
+```         
+---
+title: "ホーム"
+lang: ja
+---
+
+これは Quarto ウェブサイトです。
+
+Quarto ウェブサイトについては <https://quarto.org/docs/websites> をご覧ください。
+
+![シマエナガ](images/P3054939.jpeg)
+```
+
+## レンダリング結果
+
+![](figures/toppage.png)
+
+## Rコードの追加
+
 ## Blogの追加
 
-[Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
+参考: [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
 
-posts/
+Blog記事を格納するディレクトリ`posts/`を追加する。
 
-posts/\_metadata.yml
+設定ファイル`posts/_metadata.yml`を追加する（任意）。
 
 ```         
 # options apply to all posts in this folder
@@ -127,16 +150,69 @@ posts/\_metadata.yml
 freeze: true
 ```
 
-posts.qmd
+------------------------------------------------------------------------
 
-\_quarto.yml に追加
+リスティングページ`posts.qmd`を追加する。
 
 ```         
-- posts.qmd
+---
+title: "Blog"
+lang: ja
+listing:
+  contents: posts    # 記事格納ディレクトリ
+  sort: "date desc"  # 順番
+  type: default      # リスティングスタイル
+  categories: true   # カテゴリーの使用
+---
+```
+
+`_quarto.yml` の`website`の項目に`posts.qmd`を追加
+
+```         
+website:
+  title: "テストサイト"
+  navbar: left:
+    - href: index.qmd
+      text: Home
+    - about.qmd
+    - posts.qmd
+```
+
+## Blog記事の追加
+
+`posts`の下にディレクトリ作成、その下に`index.qmd`というファイル名でQuartoドキュメント作成。
+
+```         
+---
+title: "テスト"
+lang: ja
+date: "2024-02-17"
+categories: [Test]
+---
+
+テストです。
 ```
 
 ## ディレクトリ構造（例）
 
-## RSS
+```         
+_quarto.yml
+_site/
+   ...
+about.qmd
+images/
+   ...
+index.qmd
+posts/
+   _metadata.yml
+   2024-02-17-test/
+      index.qmd
+posts.qmd
+styles.css
+```
+
+## RSS Feed
+
+<https://quarto.org/docs/websites/website-blog.html#rss-feed>
 
 ## おわりに
