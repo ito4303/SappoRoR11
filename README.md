@@ -6,5 +6,5 @@
 
 -   [Quarto](https://quarto.org/)
     -   [Creating a Website](https://quarto.org/docs/websites/)
-    -   [Creating a Blog](https://quarto.org/docs/websites/website-blog.html)
+        -   [Creating a Blog](https://quarto.org/docs/websites/website-blog.html)
 -   Samantha Csik [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)

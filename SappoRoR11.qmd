@@ -116,7 +116,7 @@ lang: ja
 
 `index.qmd`
 
-```         
+``` {style="border: 1px solid gray; padding: 5px;"}
 ---
 title: "ホーム"
 lang: ja
@@ -158,11 +158,11 @@ ggplot(data = iris) +
 
 参考: [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
 
-Blog記事を格納するディレクトリ`posts/`を追加する。
+-   Blog記事を格納するディレクトリ`posts/`を追加する。
 
-設定ファイル`posts/_metadata.yml`を追加する（任意）。
+-   設定ファイル`posts/_metadata.yml`を追加する（任意）。ここでは`freeze: true`を設定。
 
-```         
+``` YAML
 # options apply to all posts in this folder
 
 # freeze computational output
@@ -173,7 +173,7 @@ freeze: true
 
 リスティングページ`posts.qmd`を追加する。
 
-```         
+``` YAML
 ---
 title: "Blog"
 lang: ja
@@ -187,7 +187,7 @@ listing:
 
 `_quarto.yml` の`website`の項目に`posts.qmd`を追加
 
-```         
+``` YAML
 website:
   title: "テストサイト"
   navbar: left:
@@ -234,15 +234,27 @@ styles.css
 
 `_quarto.yml`の`website`に`site-url`と`description`を追加する。
 
-![](figures/rss_settings1.png){width="312"}
+``` yaml
+website:
+  title: "テストサイト"
+  site-url: https://example.com  # ←追加
+  description: "test blog"       # ←追加
+```
 
-------------------------------------------------------------------------
+Blogリスティングページ（この例では`posts.qmd`）の`listing`に`feed: true`を追加する。
 
-Blogホームページ（この例では`posts.qmd`）の`listing`に`feed: true`を追加する。
+``` yaml
+listing:
+  contents: posts
+  sort: "date desc"
+  type: default
+  categories: true
+  feed: true       # ←追加
+```
 
-![](figures/rss_settings2.png){width="380"}
-
+::: {style="font-size: 80%;"}
 公式ドキュメントの説明: <https://quarto.org/docs/websites/website-blog.html#rss-feed>
+:::
 
 ## 実際に作成したウェブサイト
 
@@ -252,10 +264,8 @@ Blogホームページ（この例では`posts.qmd`）の`listing`に`feed: true
 
 ## おわりに
 
-詳細な設定などは、公式ドキュメント([Quarto: Creating a Website](https://quarto.org/docs/websites/))などを参照してください。
+詳細な設定などは、公式ドキュメント([Creating a Website](https://quarto.org/docs/websites/))などを参照してください。
 
-------------------------------------------------------------------------
-
-::: {style="text-align: center; margin-top: 2em; font-size: 128px;"}
+::: {style="text-align: center; margin-top: 1em; font-size: 128px;"}
 🥳
 :::
