@@ -3,6 +3,3 @@
 .RData
 .Ruserdata
 *.html
-.quarto/
-_freeze/
-_site/
