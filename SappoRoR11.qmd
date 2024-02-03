@@ -10,10 +10,16 @@ self-contained: true
 ## 自己紹介
 
 -   氏名: 伊東宏樹
+-   勤務先: 森林総合研究所北海道支所
+-   共訳書:
+    -   [[BUGSで学ぶ階層モデリング入門---個体群のベイズ解析---](https://www.hanmoto.com/bd/isbn/9784320057807)]{style="font-size: 95%"}
+    -   [[生態学のための階層モデリング---RとBUGSによる分布・個体数量・種の豊かさの統計解析---](https://www.hanmoto.com/bd/isbn/9784320058149)]{style="font-size: 95%"}
 
 ## Quartoとは
 
+::: {style="margin-top: 2em;"}
 [公式サイト](https://quarto.org/)いわく:
+:::
 
 -   An open-source scientific and technical publishing system
 
@@ -23,15 +29,15 @@ self-contained: true
 
 ------------------------------------------------------------------------
 
--   RStudio以外でも使える
+-   RStudio以外でも使える（例: Emacs）
 
 ![](figures/emacs_quarto-mode.png){fig-alt="Emacs: quarto-mode"}
 
 ## インストール
 
--   RStudioとは別にインストール
-
--   インストーラーは、[Get Started](https://quarto.org/docs/get-started/)または[ダウンロードページ](https://quarto.org/docs/download/)にて入手可能
+::: {style="margin-top: 2em;"}
+インストーラーは、[Get Started](https://quarto.org/docs/get-started/)または[ダウンロードページ](https://quarto.org/docs/download/)にて入手可能
+:::
 
 ## RStudioから使う
 
@@ -53,9 +59,11 @@ self-contained: true
 
 ## 設定
 
+::: {style="margin-top: 2em;"}
 -   サイトの設定
 
 -   ページごとの設定
+:::
 
 ## サイトの設定
 
@@ -81,13 +89,19 @@ format:
 editor: visual
 ```
 
-<https://quarto.org/docs/websites/website-navigation.html>
+------------------------------------------------------------------------
 
-<https://quarto.org/docs/websites/website-tools.html>
+詳細は
+
+-   [Website Navigation](https://quarto.org/docs/websites/website-navigation.html)
+
+-   [Website Tools](https://quarto.org/docs/websites/website-tools.html)
 
 ## ページごとの設定
 
-yamlで`lang: ja`とすると、パーツを日本語化できる[^1]。
+-   YAMLヘッダで設定
+
+-   `lang: ja`とすると、パーツを日本語化できる[^1]。
 
 [^1]: レンダリング時に警告がでたりするが。
 
@@ -98,13 +112,55 @@ lang: ja
 ---
 ```
 
+## トップページの作成
+
+`index.qmd`
+
+```         
+---
+title: "ホーム"
+lang: ja
+---
+
+これは Quarto ウェブサイトです。
+
+Quarto ウェブサイトについては <https://quarto.org/docs/websites> をご覧ください。
+
+![シマエナガ](images/P3054939.jpeg)
+```
+
+## レンダリング結果
+
+![](figures/toppage.png)
+
+## Rコードの追加
+
+R Markdown同様にRコードを挿入できる。
+
+![](figures/rcode.png)
+
+------------------------------------------------------------------------
+
+![](figures/ggplot2.png)
+
+```{r}
+#| label: plot
+#| echo: false
+#| fig-width: 6.5
+#| fig-height: 4.5
+library(ggplot2)
+ggplot(data = iris) +
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width,
+                 colour = Species))
+```
+
 ## Blogの追加
 
-[Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
+参考: [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
 
-posts/
+Blog記事を格納するディレクトリ`posts/`を追加する。
 
-posts/\_metadata.yml
+設定ファイル`posts/_metadata.yml`を追加する（任意）。
 
 ```         
 # options apply to all posts in this folder
@@ -113,20 +169,93 @@ posts/\_metadata.yml
 freeze: true
 ```
 
-posts.qmd
+------------------------------------------------------------------------
 
-\_quarto.yml に追加
+リスティングページ`posts.qmd`を追加する。
 
 ```         
-- posts.qmd
+---
+title: "Blog"
+lang: ja
+listing:
+  contents: posts    # 記事格納ディレクトリ
+  sort: "date desc"  # 順番
+  type: default      # リスティングスタイル
+  categories: true   # カテゴリーの使用
+---
 ```
 
-## ディレクトリ構造
+`_quarto.yml` の`website`の項目に`posts.qmd`を追加
 
-## RSS
+```         
+website:
+  title: "テストサイト"
+  navbar: left:
+    - href: index.qmd
+      text: Home
+    - about.qmd
+    - posts.qmd
+```
+
+## Blog記事の追加
+
+`posts`の下にディレクトリ作成、その下に`index.qmd`というファイル名でQuartoドキュメント作成。
+
+```         
+---
+title: "テスト"
+lang: ja
+date: "2024-02-17"
+categories: [Test]
+---
+
+テストです。
+```
+
+## ディレクトリ構造（例）
+
+```         
+_quarto.yml
+_site/
+   ...
+about.qmd
+images/
+   ...
+index.qmd
+posts/
+   _metadata.yml
+   2024-02-17-test/
+      index.qmd
+posts.qmd
+styles.css
+```
+
+## RSS Feed
+
+`_quarto.yml`の`website`に`site-url`と`description`を追加する。
+
+![](figures/rss_settings1.png){width="312"}
+
+------------------------------------------------------------------------
+
+Blogホームページ（この例では`posts.qmd`）の`listing`に`feed: true`を追加する。
+
+![](figures/rss_settings2.png){width="380"}
+
+公式ドキュメントの説明: <https://quarto.org/docs/websites/website-blog.html#rss-feed>
+
+## 実際に作成したウェブサイト
+
+<https://ito4303.sakura.ne.jp>
+
+![](figures/website.png)
 
 ## おわりに
 
-## Link
+詳細な設定などは、公式ドキュメント([Quarto: Creating a Website](https://quarto.org/docs/websites/))などを参照してください。
 
-第104回 Tokyo.R @kazuyanagimotoJ さん: [Non-designer's Presentation in Quarto](https://kazuyanagimoto.com/quarto-slides-example/code/slides/tokyor_quarto_slides/)
+------------------------------------------------------------------------
+
+::: {style="text-align: center; margin-top: 2em; font-size: 128px;"}
+🥳
+:::
