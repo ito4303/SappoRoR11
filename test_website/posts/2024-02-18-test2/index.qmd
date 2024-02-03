@@ -1,0 +1,19 @@
+---
+title: "テストその2"
+lang: ja
+date: "2024-02-18"
+categories: [Test, R]
+---
+
+テストその2
+
+## ヒストグラム
+
+```{r}
+#| label: normal
+library(ggplot2)
+set.seed(123)
+data.frame(x = rnorm(1000, 0, 1)) |>
+  ggplot(mapping = aes(x)) +
+  geom_histogram(binwidth = 0.2)
+```

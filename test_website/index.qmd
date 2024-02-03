@@ -1,0 +1,17 @@
+---
+title: "ホーム"
+lang: ja
+---
+
+これは Quarto ウェブサイトです。
+
+Quarto ウェブサイトについては <https://quarto.org/docs/websites> をご覧ください。
+
+![シマエナガ](images/P3054939.jpeg)
+
+```{r}
+#| label: rcode
+#| echo: true
+set.seed(123)
+rnorm(3, 0, 1)
+```

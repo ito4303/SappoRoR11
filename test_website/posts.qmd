@@ -1,0 +1,10 @@
+---
+title: "Blog"
+lang: ja
+listing:
+  contents: posts    # 記事格納ディレクトリ
+  sort: "date desc"  # 順番
+  type: default      # リスティングスタイル
+  categories: true   # カテゴリーの使用
+  feed: true
+---
