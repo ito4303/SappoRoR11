@@ -1,7 +1,8 @@
 ---
 title: "Quartoでウェブサイトをつくってみた"
+subtitle: "SappoRo.R #11"
 author: "伊東宏樹"
-date: "2024-02-17"
+date: 2024-02-17
 format: revealjs
 editor: visual
 self-contained: true
@@ -91,7 +92,7 @@ editor: visual
 
 ------------------------------------------------------------------------
 
-詳細は
+詳細は公式ドキュメント
 
 -   [Website Navigation](https://quarto.org/docs/websites/website-navigation.html)
 
@@ -162,7 +163,7 @@ ggplot(data = iris) +
 
 -   設定ファイル`posts/_metadata.yml`を追加する（任意）。ここでは`freeze: true`を設定。
 
-``` YAML
+``` yaml
 # options apply to all posts in this folder
 
 # freeze computational output
@@ -173,7 +174,7 @@ freeze: true
 
 リスティングページ`posts.qmd`を追加する。
 
-``` YAML
+``` yaml
 ---
 title: "Blog"
 lang: ja
@@ -187,7 +188,7 @@ listing:
 
 `_quarto.yml` の`website`の項目に`posts.qmd`を追加
 
-``` YAML
+``` yaml
 website:
   title: "テストサイト"
   navbar: left:
@@ -201,23 +202,22 @@ website:
 
 `posts`の下にディレクトリ作成、その下に`index.qmd`というファイル名でQuartoドキュメント作成。
 
-```         
----
-title: "テスト"
-lang: ja
-date: "2024-02-17"
-categories: [Test]
----
+![](figures/blog_source.png)
 
-テストです。
-```
+## リスティングページ
+
+![](figures/blog_listing.png)
+
+## Blog記事
+
+![](figures/blog_page.png)
 
 ## ディレクトリ構造（例）
 
-```         
+``` {style="border: 1px solid gray; padding: 5px;"}
 _quarto.yml
 _site/
-   ...
+   ...             <- レンダリングされたウェブサイト
 about.qmd
 images/
    ...
@@ -226,6 +226,9 @@ posts/
    _metadata.yml
    2024-02-17-test/
       index.qmd
+   2024-02-18-test2/
+      index.qmd
+   ...
 posts.qmd
 styles.css
 ```
@@ -252,7 +255,7 @@ listing:
   feed: true       # ←追加
 ```
 
-::: {style="font-size: 80%;"}
+::: {style="padding-top: 0.5em; font-size: 60%;"}
 公式ドキュメントの説明: <https://quarto.org/docs/websites/website-blog.html#rss-feed>
 :::
 

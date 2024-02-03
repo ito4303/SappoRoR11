@@ -1,0 +1,16 @@
+---
+title: "テスト"
+lang: ja
+date: "2024-02-17"
+categories: [Test, R]
+---
+
+テストです。
+
+```{r}
+#| label: plot
+library(ggplot2)
+ggplot(data = iris) +
+  geom_point(aes(x = Sepal.Length, y = Sepal.Width,
+                 colour = Species))
+```
