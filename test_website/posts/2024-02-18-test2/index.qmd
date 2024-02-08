@@ -7,13 +7,16 @@ categories: [Test, R]
 
 テストその2
 
-## ヒストグラム
+## 正規分布
+
+$$
+\Pr(x \mid \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+$$
 
 ```{r}
 #| label: normal
 library(ggplot2)
-set.seed(123)
-data.frame(x = rnorm(1000, 0, 1)) |>
-  ggplot(mapping = aes(x)) +
-  geom_histogram(binwidth = 0.2)
+ggplot() +
+  geom_function(fun = dnorm, xlim = c(-4, 4)) +
+  labs(x = "X", y = "Probability")
 ```

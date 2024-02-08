@@ -140,7 +140,7 @@ Quarto ウェブサイトについては <https://quarto.org/docs/websites> を�
 
 ![](figures/toppage.png)
 
-## Rコードの追加
+## Rコード
 
 R Markdown同様にRコードを挿入・実行できる。
 
@@ -170,6 +170,25 @@ ggplot(data = iris) +
   geom_point(mapping = aes(x = Sepal.Length, y = Sepal.Width,
                            colour = Species))
 ```
+
+## 数式
+
+R Markdownと同じ。
+
+\$で囲むとインライン数式: `$x^2$` → $x^2$
+
+\$\$で囲むと別行立て数式:
+
+```         
+$$
+\Pr(x\mid\mu,\sigma) =
+\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+$$
+```
+
+$$
+\Pr(x \mid \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+$$
 
 ## Blogの追加
 
