@@ -3,7 +3,9 @@ title: "Quartoでウェブサイトをつくってみた"
 subtitle: "SappoRo.R #11"
 author: "伊東宏樹"
 date: 2024-02-17
-format: revealjs
+format:
+  revealjs:
+    theme: [default, custom.scss]
 editor: visual
 self-contained: true
 ---
@@ -190,7 +192,7 @@ $$
 \Pr(x \mid \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
 $$
 
-## Blogの追加
+## Blogを（あとから）追加
 
 参考: [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
 
@@ -207,7 +209,7 @@ freeze: true
 
 ------------------------------------------------------------------------
 
-リスティングページ`posts.qmd`を追加する。
+Listingページ`posts.qmd`を追加する。
 
 ``` yaml
 ---
@@ -236,8 +238,6 @@ website:
 ## Blog記事の追加
 
 `posts`の下にディレクトリ作成、その下に`index.qmd`というファイル名でQuartoドキュメント作成。
-
-<!-- ![](figures/blog_source.png) -->
 
 ````         
 ---
@@ -283,7 +283,7 @@ styles.css
 
 ![](figures/Render2.png)
 
-## リスティングページ
+## Listingページ
 
 ![](figures/blog_listing.png)
 
