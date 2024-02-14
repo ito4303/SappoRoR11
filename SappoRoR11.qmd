@@ -192,6 +192,14 @@ $$
 \Pr(x \mid \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
 $$
 
+```{=html}
+<!--
+macOSのGoogle Chromeで数式の表示が乱れる場合は、数式で右クリック-> Math Settings -> Math Rendererで、Common HTMLを選択する。
+
+Qiita: macOS Ventura (v13.1) の Chrome (108/109) で Qiita の数式が崩れて見える件
+https://qiita.com/yoya/items/c54f401a9cb78930f9c8
+-->
+```
 ## Blogを（あとから）追加
 
 参考: [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
