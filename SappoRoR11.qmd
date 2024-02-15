@@ -39,9 +39,9 @@ self-contained: true
 ## インストール
 
 ::: {style="margin-top: 2em;"}
-RやRstudioとは別にインストールする必要がある。
+-   RやRstudioとは別にインストールする必要がある。
 
-インストーラーは、[Get Started](https://quarto.org/docs/get-started/)または[ダウンロードページ](https://quarto.org/docs/download/)にて入手可能。
+-   インストーラーは、quarto.orgの[Get Started](https://quarto.org/docs/get-started/)または[ダウンロードページ](https://quarto.org/docs/download/)にて入手可能。
 :::
 
 ## RStudioから使う
@@ -96,7 +96,7 @@ editor: visual
 
 ------------------------------------------------------------------------
 
-詳細は公式ドキュメント
+詳細はQuarto公式ドキュメントを参照
 
 -   [Website Navigation](https://quarto.org/docs/websites/website-navigation.html)
 
@@ -135,6 +135,8 @@ Quarto ウェブサイトについては <https://quarto.org/docs/websites> を�
 ```
 
 ## Render
+
+HTMLファイルを生成
 
 ![](figures/Render.png)
 
@@ -200,7 +202,7 @@ Qiita: macOS Ventura (v13.1) の Chrome (108/109) で Qiita の数式が崩れ�
 https://qiita.com/yoya/items/c54f401a9cb78930f9c8
 -->
 ```
-## Blogを（あとから）追加
+## Blogを（後付けで）追加
 
 参考: [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
 
@@ -217,7 +219,7 @@ freeze: true
 
 ------------------------------------------------------------------------
 
-Listingページ`posts.qmd`を追加する。
+Listingページ`posts.qmd`を追加する。内容は以下のYAMLヘッダ。
 
 ``` yaml
 ---
@@ -240,7 +242,7 @@ website:
     - href: index.qmd
       text: Home
     - about.qmd
-    - posts.qmd
+    - posts.qmd    # <- 追加
 ```
 
 ## Blog記事の追加
@@ -276,11 +278,11 @@ about.qmd
 images/
    ...
 index.qmd
-posts/
+posts/             <- Blog用ディレクトリ
    _metadata.yml
-   2024-02-17-test/
+   2024-02-17-test/   <- Blog記事
       index.qmd
-   2024-02-18-test2/
+   2024-02-18-test2/  <- Blog記事
       index.qmd
    ...
 posts.qmd
@@ -289,17 +291,23 @@ styles.css
 
 ## Render
 
+記事のHTMLファイルを生成
+
 ![](figures/Render2.png)
 
 ## Listingページ
+
+生成されたListingページ
 
 ![](figures/blog_listing.png)
 
 ## Blog記事
 
+生成されたBlog記事
+
 ![](figures/blog_page.png)
 
-## RSS Feed
+## RSS Feedの追加
 
 `_quarto.yml`の`website`に`site-url`と`description`を追加する。
 
@@ -333,7 +341,7 @@ listing:
 
 ## おわりに
 
-詳細な設定などは、公式ドキュメント([Creating a Website](https://quarto.org/docs/websites/))などを参照してください。
+詳細な設定などは、Quartoの公式ドキュメント([Creating a Website](https://quarto.org/docs/websites/))などを参照してください。
 
 ::: {style="text-align: center; margin-top: 1em; font-size: 128px;"}
 🥳
