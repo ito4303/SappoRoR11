@@ -20,15 +20,15 @@ self-contained: true
 
 ## Quartoとは
 
-::: {style="margin-top: 2em;"}
+::: {style="margin-top: 2em; padding-right: 1em;"}
 [公式サイト](https://quarto.org/)いわく:
-:::
 
 -   An open-source scientific and technical publishing system
 
 -   Quarto is a multi-language, next generation version of R Markdown from Posit
 
     -   Rのほか、Python、Julia、Observableに対応
+:::
 
 ------------------------------------------------------------------------
 
@@ -335,7 +335,7 @@ listing:
 
 ## 実際に作成したウェブサイト
 
-<https://ito4303.sakura.ne.jp>
+[https://ito4303.sakura.ne.jp](https://ito4303.sakura.ne.jp){.uri target="_blank"} (とりあえず形だけ)
 
 ![](figures/website.png)
 
