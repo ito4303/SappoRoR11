@@ -3,7 +3,9 @@ title: "Quartoでウェブサイトをつくってみた"
 subtitle: "SappoRo.R #11"
 author: "伊東宏樹"
 date: 2024-02-17
-format: revealjs
+format:
+  revealjs:
+    theme: [default, custom.scss]
 editor: visual
 self-contained: true
 ---
@@ -18,15 +20,15 @@ self-contained: true
 
 ## Quartoとは
 
-::: {style="margin-top: 2em;"}
+::: {style="margin-top: 2em; padding-right: 1em;"}
 [公式サイト](https://quarto.org/)いわく:
-:::
 
 -   An open-source scientific and technical publishing system
 
 -   Quarto is a multi-language, next generation version of R Markdown from Posit
 
     -   Rのほか、Python、Julia、Observableに対応
+:::
 
 ------------------------------------------------------------------------
 
@@ -37,9 +39,9 @@ self-contained: true
 ## インストール
 
 ::: {style="margin-top: 2em;"}
-RやRstudioとは別にインストールする必要がある。
+-   RやRstudioとは別にインストールする必要がある。
 
-インストーラーは、[Get Started](https://quarto.org/docs/get-started/)または[ダウンロードページ](https://quarto.org/docs/download/)にて入手可能。
+-   インストーラーは、quarto.orgの[Get Started](https://quarto.org/docs/get-started/)または[ダウンロードページ](https://quarto.org/docs/download/)にて入手可能。
 :::
 
 ## RStudioから使う
@@ -68,6 +70,8 @@ RやRstudioとは別にインストールする必要がある。
 -   ページごとの設定
 :::
 
+それぞれに設定項目がある。
+
 ## サイトの設定
 
 \_quarto.yaml
@@ -94,7 +98,7 @@ editor: visual
 
 ------------------------------------------------------------------------
 
-詳細は公式ドキュメント
+詳細はQuarto公式ドキュメントを参照
 
 -   [Website Navigation](https://quarto.org/docs/websites/website-navigation.html)
 
@@ -104,7 +108,7 @@ editor: visual
 
 -   YAMLヘッダで設定
 
--   `lang: ja`とすると、パーツを日本語化できる[^1]。
+-   例: `lang: ja`とすると、パーツを日本語化できる[^1]。
 
 [^1]: レンダリング時に警告がでたりするが。
 
@@ -117,7 +121,7 @@ lang: ja
 
 ## トップページの作成
 
-`index.qmd`
+`index.qmd`の例
 
 ``` {style="border: 1px solid gray; padding: 5px;"}
 ---
@@ -134,13 +138,15 @@ Quarto ウェブサイトについては <https://quarto.org/docs/websites> を�
 
 ## Render
 
+HTMLファイルを生成
+
 ![](figures/Render.png)
 
 ## レンダリング結果
 
 ![](figures/toppage.png)
 
-## Rコードの追加
+## Rコード
 
 R Markdown同様にRコードを挿入・実行できる。
 
@@ -171,7 +177,34 @@ ggplot(data = iris) +
                            colour = Species))
 ```
 
-## Blogの追加
+## 数式
+
+R Markdownと同じ。
+
+\$で囲むとインライン数式: `$x^2$` → $x^2$
+
+\$\$で囲むと別行立て数式:
+
+```         
+$$
+\Pr(x\mid\mu,\sigma) =
+\frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
+$$
+```
+
+$$
+\Pr(x \mid \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x - \mu)^2}{2\sigma^2}\right)
+$$
+
+```{=html}
+<!--
+macOSのGoogle Chromeで数式の表示が乱れる場合は、数式で右クリック-> Math Settings -> Math Rendererで、Common HTMLを選択する。
+
+Qiita: macOS Ventura (v13.1) の Chrome (108/109) で Qiita の数式が崩れて見える件
+https://qiita.com/yoya/items/c54f401a9cb78930f9c8
+-->
+```
+## Blogを（後付けで）追加
 
 参考: [Adding a blog to your existing Quarto website](https://samanthacsik.github.io/posts/2022-10-24-quarto-blogs/)
 
@@ -188,7 +221,7 @@ freeze: true
 
 ------------------------------------------------------------------------
 
-リスティングページ`posts.qmd`を追加する。
+Listingページ`posts.qmd`を追加する。内容は以下のYAMLヘッダ。
 
 ``` yaml
 ---
@@ -211,14 +244,12 @@ website:
     - href: index.qmd
       text: Home
     - about.qmd
-    - posts.qmd
+    - posts.qmd    # <- 追加
 ```
 
 ## Blog記事の追加
 
 `posts`の下にディレクトリ作成、その下に`index.qmd`というファイル名でQuartoドキュメント作成。
-
-<!-- ![](figures/blog_source.png) -->
 
 ````         
 ---
@@ -249,11 +280,11 @@ about.qmd
 images/
    ...
 index.qmd
-posts/
+posts/             <- Blog用ディレクトリ
    _metadata.yml
-   2024-02-17-test/
+   2024-02-17-test/   <- Blog記事
       index.qmd
-   2024-02-18-test2/
+   2024-02-18-test2/  <- Blog記事
       index.qmd
    ...
 posts.qmd
@@ -262,17 +293,23 @@ styles.css
 
 ## Render
 
+記事のHTMLファイルを生成
+
 ![](figures/Render2.png)
 
-## リスティングページ
+## Listingページ
+
+生成されたListingページ
 
 ![](figures/blog_listing.png)
 
 ## Blog記事
 
+生成されたBlog記事
+
 ![](figures/blog_page.png)
 
-## RSS Feed
+## RSS Feedの追加
 
 `_quarto.yml`の`website`に`site-url`と`description`を追加する。
 
@@ -300,13 +337,13 @@ listing:
 
 ## 実際に作成したウェブサイト
 
-<https://ito4303.sakura.ne.jp>
+[https://ito4303.sakura.ne.jp](https://ito4303.sakura.ne.jp){.uri target="_blank"} (とりあえず形だけ)
 
 ![](figures/website.png)
 
 ## おわりに
 
-詳細な設定などは、公式ドキュメント([Creating a Website](https://quarto.org/docs/websites/))などを参照してください。
+詳細な設定などは、Quartoの公式ドキュメント([Creating a Website](https://quarto.org/docs/websites/))などを参照してください。
 
 ::: {style="text-align: center; margin-top: 1em; font-size: 128px;"}
 🥳
