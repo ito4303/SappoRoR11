@@ -70,6 +70,8 @@ self-contained: true
 -   ページごとの設定
 :::
 
+それぞれに設定項目がある。
+
 ## サイトの設定
 
 \_quarto.yaml
@@ -106,7 +108,7 @@ editor: visual
 
 -   YAMLヘッダで設定
 
--   `lang: ja`とすると、パーツを日本語化できる[^1]。
+-   例: `lang: ja`とすると、パーツを日本語化できる[^1]。
 
 [^1]: レンダリング時に警告がでたりするが。
 
@@ -119,7 +121,7 @@ lang: ja
 
 ## トップページの作成
 
-`index.qmd`
+`index.qmd`の例
 
 ``` {style="border: 1px solid gray; padding: 5px;"}
 ---
