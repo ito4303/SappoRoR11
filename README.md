@@ -1,8 +1,10 @@
 # SappoRo.R #11 での発表ファイル
 
-[SappoRo.R #11](https://connpass.com/event/307297/) での発表「Quartoでウェブサイトをつくってみた」の発表ファイル
+[SappoRo.R #11](https://connpass.com/event/307297/) での発表「Quartoでウェブサイトをつくってみた」の発表ファイル用のリポジトリです。
 
-## リンク
+発表スライド: [https://ito4303.github.io/SappoRoR11.html](https://ito4303.github.io/SappoRoR11.html)
+
+## 参考リンク
 
 -   [Quarto](https://quarto.org/)
     -   [Creating a Website](https://quarto.org/docs/websites/)
