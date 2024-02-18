@@ -79,20 +79,20 @@ self-contained: true
 ``` yaml
 project:
   type: website
-  
+
 website:
   title: "テストサイト"
   navbar: left:
     - href: index.qmd
       text: Home
     - about.qmd
-    
+
 format:
   html:
     theme: cosmo
     css: styles.css
     toc: true
-    
+
 editor: visual
 ```
 
@@ -185,7 +185,7 @@ R Markdownと同じ。
 
 \$\$で囲むと別行立て数式:
 
-```         
+```
 $$
 \Pr(x\mid\mu,\sigma) =
 \frac{1}{\sqrt{2\pi}\sigma}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)
@@ -251,7 +251,7 @@ website:
 
 `posts`の下にディレクトリ作成、その下に`index.qmd`というファイル名でQuartoドキュメント作成。
 
-````         
+````
 ---
 title: "テスト"
 lang: ja
